@@ -13,7 +13,7 @@ import BottomGlow from "./ui/BottomGlow";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
 
-const GetStarted = () => {
+const NameInput = () => {
   const [name, setName] = React.useState("");
 
   const handleContinue = async () => {
@@ -134,4 +134,4 @@ const styles = StyleSheet.create({
 });
   
 
-export default GetStarted;
+export default NameInput;
