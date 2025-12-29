@@ -9,28 +9,10 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-// If you have expo-vector-icons installed, use:
-// import { Ionicons } from "@expo/vector-icons";
-// Otherwise, we'll create simple icon components
-
 import Pearl from "./ui/Pearl";
 import BgGlow from "./ui/BgGlow";
-import BottomGlow from "./ui/BottomGlow";
+import MicIcon from "./decor/MicIcon";
 
-// Simple icon components as fallback
-const MicIcon = () => (
-  <View
-    style={{
-      width: 20,
-      height: 20,
-      justifyContent: "center",
-      alignItems: "center",
-    }}
-  >
-    <Text style={{ fontSize: 18, color: "#9B9B9B" }}>🎤</Text>
-  </View>
-);
 
 const SendIcon = ({ color }: { color: string }) => (
   <View
@@ -124,10 +106,7 @@ const ChatScreen = () => {
   return (
     <KeyboardAvoidingView
       style={styles.container}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
     >
-      {/* Background glows */}
       <BgGlow />
 
       {/* Header */}
@@ -337,15 +316,25 @@ const styles = StyleSheet.create({
 
   inputContainer: {
     paddingHorizontal: 24,
+    paddingBottom: 30,
     paddingVertical: 12,
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "rgba(255, 255, 255)",
+    backgroundColor: "rgba(255, 255, 255, 0.3)",
   },
 
   micButton: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    alignItems: "center",
+    justifyContent: "center",
     padding: 8,
     marginRight: 4,
+    backgroundColor: "#FEF3C660",
+    shadowColor: "#000",
+    shadowOpacity: 0.06,
+    shadowRadius: 12,
   },
 
   input: {
@@ -353,11 +342,27 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#6F6F6F",
     maxHeight: 100,
+    paddingHorizontal: 20,
+    paddingVertical: 30,
+    backgroundColor: "rgba(255, 255, 255, 0.6)",
+    borderRadius: 20,
+    shadowColor: "#000",
+    shadowOpacity: 0.06,
+    shadowRadius: 12,
   },
 
   sendButton: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    alignItems: "center",
+    justifyContent: "center",
     padding: 8,
     marginLeft: 4,
+    backgroundColor: "#FEF3C660",
+    shadowColor: "#000",
+    shadowOpacity: 0.06,
+    shadowRadius: 12,
   },
 });
 

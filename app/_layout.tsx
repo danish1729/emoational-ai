@@ -9,5 +9,7 @@ export default function RootLayout() {
     Splash.hideAsync(); // hide native splash when app is ready
   }, []);
 
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return <Stack screenOptions={{ headerShown: false }}>
+    
+  </Stack>;
 }

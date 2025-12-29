@@ -9,6 +9,9 @@ import SupportOptions from "../components/SupportOptions";
 import FindingSupport from "../components/FindingSupport";
 import CoachIntro from "../components/CoachIntro";
 import ChatScreen from "../components/ChatScreen";
+import ReflectionScreen from "../components/Reflection";
+import Login from "./(auth)/Login";
+import WelcomeBack from "../components/WelcomeBack";
 
 export default function Index() {
   const [showSplash, setShowSplash] = useState(true);
@@ -29,5 +32,5 @@ export default function Index() {
     );
   }
 
-  return <ChatScreen />;
+  return <WelcomeBack />;
 }
