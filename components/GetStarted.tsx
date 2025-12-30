@@ -37,7 +37,7 @@ const GetStarted = () => {
             end={{ x: 1, y: 0 }}
             style={styles.button}
           >
-            <Text style={styles.buttonText} onPress={() => {router.replace("/(onboarding)/name");}}>Get Started</Text>
+            <Text style={styles.buttonText} onPress={() => {router.replace("/(tabs)");}}>Get Started</Text>
           </LinearGradient>
         </TouchableOpacity>
 

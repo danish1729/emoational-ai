@@ -7,9 +7,12 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          height: 70,
+          height: 100,
           borderTopLeftRadius: 30,
           borderTopRightRadius: 30,
+          paddingTop: 20,
+          alignItems: "center",
+          justifyContent: "center",
           backgroundColor: "#FFF",
           position: "absolute",
         },

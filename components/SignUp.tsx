@@ -29,7 +29,7 @@ const SignupScreen = () => {
     await AsyncStorage.setItem("authToken", fakeToken);
 
     // Navigate to home
-    router.replace("/home");
+    router.replace("/(tabs)");
   };
 
   return (

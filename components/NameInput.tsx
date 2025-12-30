@@ -33,7 +33,7 @@ const NameInput = () => {
     router.push("/home");
   };
 
-  
+
   return (
     <View style={styles.container}>
       {/* background glows */}
