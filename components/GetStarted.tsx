@@ -37,13 +37,13 @@ const GetStarted = () => {
             end={{ x: 1, y: 0 }}
             style={styles.button}
           >
-            <Text style={styles.buttonText}>Get Started</Text>
+            <Text style={styles.buttonText} onPress={() => {router.replace("/(onboarding)/name");}}>Get Started</Text>
           </LinearGradient>
         </TouchableOpacity>
 
         {/* footer */}
         <TouchableOpacity>
-          <Text style={styles.footerText} onPress={() => router.push("/Login")}>I already have an account</Text>
+          <Text style={styles.footerText} onPress={() => router.replace("/(onboarding)/Login")}>I already have an account</Text>
         </TouchableOpacity>
       </View>
     </View>

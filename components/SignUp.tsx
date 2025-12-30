@@ -6,27 +6,31 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router } from "expo-router";
 
 import Pearl from "./ui/Pearl";
 import BgGlow from "./ui/BgGlow";
 import BottomGlow from "./ui/BottomGlow";
-import { router } from "expo-router";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const LoginScreen = () => {
+const SignupScreen = () => {
+  const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  
-
-  const handleLogin = async () => {
+  const handleSignup = async () => {
+    /**
+     * 🔐 API call will go here later
+     * For now we simulate a token
+     */
     const fakeToken = "user-auth-token-123456";
 
+    // Save token in mobile storage
     await AsyncStorage.setItem("authToken", fakeToken);
 
+    // Navigate to home
     router.replace("/home");
   };
-
 
   return (
     <View style={styles.container}>
@@ -40,11 +44,18 @@ const LoginScreen = () => {
       {/* content */}
       <View style={styles.content}>
         <View style={{ width: "100%", alignItems: "center" }}>
-          <Text style={styles.title}>Welcome back</Text>
+          <Text style={styles.title}>Create account</Text>
 
           <Text style={styles.subtitle}>
-            Enter your account details to continue.
+            Enter your details to get started.
           </Text>
+
+          <TextInput
+            placeholder="Full name"
+            placeholderTextColor="#B7B7B7"
+            style={styles.input}
+            onChangeText={setName}
+          />
 
           <TextInput
             placeholder="Email or phone"
@@ -60,27 +71,27 @@ const LoginScreen = () => {
             style={styles.input}
             onChangeText={setPassword}
           />
-
-          <Text style={styles.forgot}>Forgot password?</Text>
         </View>
 
         <View style={{ width: "100%", alignItems: "center" }}>
           <TouchableOpacity
             style={styles.button}
-            onPress={handleLogin}
-            disabled={!email || !password}
+            onPress={handleSignup}
+            disabled={!name || !email || !password}
           >
-            <Text style={styles.buttonText}>Log In</Text>
+            <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
 
-          <Text style={styles.footerText}>Create a new account</Text>
-          <Text style={styles.footerHelp}>Need help signing in?</Text>
+          <Text style={styles.footerText} onPress={() => router.push("/login")}>
+            Already have an account?
+          </Text>
+
+          <Text style={styles.footerHelp}>Need help signing up?</Text>
         </View>
       </View>
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -128,12 +139,6 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
 
-  forgot: {
-    fontSize: 12,
-    color: "#B3B3B3",
-    marginTop: 10,
-  },
-
   button: {
     width: "100%",
     height: 50,
@@ -161,5 +166,5 @@ const styles = StyleSheet.create({
     color: "#C5C5C5",
   },
 });
-
-export default LoginScreen;
+  
+export default SignupScreen;

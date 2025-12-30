@@ -16,15 +16,24 @@ import { router } from "expo-router";
 const NameInput = () => {
   const [name, setName] = React.useState("");
 
+  
+
   const handleContinue = async () => {
-    await AsyncStorage.setItem("user_name", name);
-    router.push("/home");
+    const token = await AsyncStorage.getItem("authToken");
+
+    if (token) {
+      router.replace("/(onboarding)/signup");
+    } else {
+      router.replace("/(onboarding)/Login");
+    }
   };
 
   const handleAnonymous = async () => {
     await AsyncStorage.setItem("user_name", "Anonymous");
     router.push("/home");
   };
+
+  
   return (
     <View style={styles.container}>
       {/* background glows */}

@@ -10,8 +10,9 @@ import FindingSupport from "../components/FindingSupport";
 import CoachIntro from "../components/CoachIntro";
 import ChatScreen from "../components/ChatScreen";
 import ReflectionScreen from "../components/Reflection";
-import Login from "./(auth)/Login";
+import Login from "./(onboarding)/Login";
 import WelcomeBack from "../components/WelcomeBack";
+import { router } from "expo-router";
 
 export default function Index() {
   const [showSplash, setShowSplash] = useState(true);
@@ -19,8 +20,9 @@ export default function Index() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowSplash(false);
+      router.replace("/(onboarding)/GetStartedPage");
     }, 2000); // ⏱ 2 seconds
-
+    
     return () => clearTimeout(timeout);
   }, []);
 
@@ -31,6 +33,4 @@ export default function Index() {
       </View>
     );
   }
-
-  return <WelcomeBack />;
 }
